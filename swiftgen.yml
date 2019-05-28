@@ -1,0 +1,5 @@
+strings:
+  inputs: GiphyViewer/Resources/en.lproj/Localizable.strings 
+  outputs:
+    - templateName: structured-swift4
+      output: GiphyViewer/Resources/Strings.swift
