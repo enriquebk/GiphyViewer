@@ -19,6 +19,11 @@ class SearchViewController: UIViewController, MVVMView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        APIClient().searchGIFs(with: "funny") { (gifs, error) in
+            
+            print(gifs)
+        }
+        
         // Do any additional setup after loading the view.
     }
 
