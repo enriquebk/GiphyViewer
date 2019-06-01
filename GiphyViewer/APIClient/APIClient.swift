@@ -7,17 +7,15 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class APIClient: NSObject {
+class APIClient {
     
-    func execute(request apiRequest: APIRequest) -> Observable<Data> {
+    func execute(request apiRequest: APIRequest) {
         guard let request = apiRequest.request() else {
             print("Invalid request")
-            return Observable.just(Data())
+            return
         }
         
-        return URLSession.shared.rx.data(request: request)
+        //TODO: Execute Request
     }
 }

@@ -7,8 +7,6 @@ pod 'SwiftGen'
 
 target 'GiphyViewer' do
 
-  pod 'RxSwift'
-  pod 'RxCocoa'
   pod 'SVProgressHUD'
 
   target 'GiphyViewerTests' do
