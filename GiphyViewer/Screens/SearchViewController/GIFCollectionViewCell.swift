@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyGif
 
 struct GIFCollectionViewCellViewState {
     let titleString: String
@@ -24,8 +23,6 @@ class GIFCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var GIFImage: UIImageView!
     
     func setViewState(_ viewState: GIFCollectionViewCellViewState) {
-        
-        self.GIFImage.setGifFromURL(viewState.previewURL)
+        self.GIFImage.loadGif(from: viewState.previewURL)
     }
-
 }

@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UICollectionViewDataSourcePrefetching {
 
     var viewModel: SearchViewModel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,9 +19,12 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
             if searching {
                 SVProgressHUD.show()
             } else {
-                self.collectionView.reloadData()
                 SVProgressHUD.dismiss()
             }
+        }
+        
+        self.viewModel.gifs.bind { (_) in
+            self.collectionView.reloadData()
         }
     }
     
@@ -87,6 +90,15 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
         
         let size = collectionView.frame.width / CGFloat(numberOfItems) - (collectionViewMargin / 2.0 + itemsSpacing)
         return CGSize(width: size, height: size)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        for indexPath in indexPaths {
+            if indexPath.item == self.viewModel.gifs.value.count - 1 {
+                //self.viewModel.loadNewPage()
+            }
+        }
     }
 }
 

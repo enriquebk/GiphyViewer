@@ -38,6 +38,7 @@
 		CDB3C81422A3791F002240C1 /* GIFCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81222A3791F002240C1 /* GIFCollectionViewCell.swift */; };
 		CDB3C81522A3791F002240C1 /* GIFCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB3C81322A3791F002240C1 /* GIFCollectionViewCell.xib */; };
 		CDB3C81722A40A9C002240C1 /* NibIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81622A40A9C002240C1 /* NibIdentifiable.swift */; };
+		CDB3C81A22A41E81002240C1 /* UIImageView+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81922A41E81002240C1 /* UIImageView+Gif.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		CDB3C81222A3791F002240C1 /* GIFCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFCollectionViewCell.swift; sourceTree = "<group>"; };
 		CDB3C81322A3791F002240C1 /* GIFCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GIFCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDB3C81622A40A9C002240C1 /* NibIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibIdentifiable.swift; sourceTree = "<group>"; };
+		CDB3C81922A41E81002240C1 /* UIImageView+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Gif.swift"; sourceTree = "<group>"; };
 		E0A39EE86C9CB8526427893E /* Pods-GiphyViewerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewerUITests/Pods-GiphyViewerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FAEA9BC51E0B3A44658CBF80 /* Pods-GiphyViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewer/Pods-GiphyViewer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				CDB3C81622A40A9C002240C1 /* NibIdentifiable.swift */,
+				CDB3C81922A41E81002240C1 /* UIImageView+Gif.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				CDB3C80222A31127002240C1 /* GIFRoute.swift in Sources */,
 				CDB3C80922A3215A002240C1 /* APIClientError.swift in Sources */,
 				CD91CF992202666C00C8F9DF /* Strings.swift in Sources */,
+				CDB3C81A22A41E81002240C1 /* UIImageView+Gif.swift in Sources */,
 				CDB3C80422A31160002240C1 /* SearchViewModel.swift in Sources */,
 				CD810BDD22046F8200D56D80 /* APIRequest.swift in Sources */,
 				CD91CFA02202F85500C8F9DF /* Coordinator.swift in Sources */,

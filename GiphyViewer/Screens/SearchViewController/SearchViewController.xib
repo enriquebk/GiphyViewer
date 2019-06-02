@@ -33,6 +33,7 @@
                     <connections>
                         <outlet property="dataSource" destination="-1" id="H4N-4g-Vjg"/>
                         <outlet property="delegate" destination="-1" id="T8C-VC-WQd"/>
+                        <outlet property="prefetchDataSource" destination="-1" id="lr1-DN-IpB"/>
                     </connections>
                 </collectionView>
             </subviews>
