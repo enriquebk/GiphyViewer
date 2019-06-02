@@ -9,9 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-//swiftlint:disable line_length
-class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching {
-//swiftlint:enable line_length
+class SearchViewController: UIViewController, MVVMView {
     
     var viewModel: SearchViewModel!
     @IBOutlet weak private var collectionView: UICollectionView!
@@ -64,21 +62,24 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
         
         self.navigationItem.titleView = searchBar
         
-        self.viewModel.searchGIFs(with: "funny")
-        
         self.collectionView.addSubview(self.refreshControl)
         self.refreshControl.addTarget(self, action: #selector(reloadItems), for: .valueChanged)
     }
     
-    @objc func reloadItems() {
+    @objc private func reloadItems() {
         self.refreshControl.endRefreshing()
         if let searchText = self.searchBar.text {
             self.viewModel.searchGIFs(with: searchText)
         }
     }
     
-    // MARK: UICollectionViewDataSource
+    @objc private func search(_ query: String) {
+        self.viewModel.searchGIFs(with: query)
+    }
+}
 
+extension SearchViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.showingCellsCount = self.viewModel.gifs.value.count
         return showingCellsCount
@@ -96,15 +97,15 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
         
         return cell
     }
-    
-    // MARK: - UICollectionViewDelegate protocol
-    
+}
+
+extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.viewModel.selectGIF(at: indexPath.item)
     }
-    
-    // MARK: - UICollectionViewDelegateFlowLayout protocol
-    
+}
+
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let collectionViewMargin = CGFloat(4)
@@ -125,16 +126,14 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
         let size = collectionView.frame.width / CGFloat(numberOfItems) - (collectionViewMargin / 2.0 + itemsSpacing)
         return CGSize(width: size, height: size)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+}
 
+extension SearchViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
         if indexPaths.first(where: { return $0.item == self.viewModel.gifs.value.count - 1 }) != nil {
             self.viewModel.loadNewPage()
         }
-    }
-    
-    @objc func search(_ query: String) {
-        self.viewModel.searchGIFs(with: query)
     }
 }
 

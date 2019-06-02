@@ -38,6 +38,7 @@
 		CDB3C81522A3791F002240C1 /* GIFCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB3C81322A3791F002240C1 /* GIFCollectionViewCell.xib */; };
 		CDB3C81722A40A9C002240C1 /* NibIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81622A40A9C002240C1 /* NibIdentifiable.swift */; };
 		CDB3C81A22A41E81002240C1 /* UIImageView+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81922A41E81002240C1 /* UIImageView+Gif.swift */; };
+		CDB3C81C22A46E39002240C1 /* GifFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81B22A46E39002240C1 /* GifFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		CDB3C81322A3791F002240C1 /* GIFCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GIFCollectionViewCell.xib; sourceTree = "<group>"; };
 		CDB3C81622A40A9C002240C1 /* NibIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibIdentifiable.swift; sourceTree = "<group>"; };
 		CDB3C81922A41E81002240C1 /* UIImageView+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Gif.swift"; sourceTree = "<group>"; };
+		CDB3C81B22A46E39002240C1 /* GifFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifFetcher.swift; sourceTree = "<group>"; };
 		E0A39EE86C9CB8526427893E /* Pods-GiphyViewerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewerUITests/Pods-GiphyViewerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FAEA9BC51E0B3A44658CBF80 /* Pods-GiphyViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewer/Pods-GiphyViewer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,6 +270,7 @@
 				CDB3C80E22A365C8002240C1 /* SearchViewController.swift */,
 				CDB3C80F22A365C8002240C1 /* SearchViewController.xib */,
 				CDB3C80322A31160002240C1 /* SearchViewModel.swift */,
+				CDB3C81B22A46E39002240C1 /* GifFetcher.swift */,
 				CDB3C81222A3791F002240C1 /* GIFCollectionViewCell.swift */,
 				CDB3C81322A3791F002240C1 /* GIFCollectionViewCell.xib */,
 			);
@@ -608,6 +611,7 @@
 				CDB3C81022A365C8002240C1 /* SearchViewController.swift in Sources */,
 				CD91CF502201FF6D00C8F9DF /* AppDelegate.swift in Sources */,
 				CDB3C7FD22A30F45002240C1 /* GIFViewController.swift in Sources */,
+				CDB3C81C22A46E39002240C1 /* GifFetcher.swift in Sources */,
 				CDB3C80622A31173002240C1 /* GIFViewModel.swift in Sources */,
 				CDB3C81722A40A9C002240C1 /* NibIdentifiable.swift in Sources */,
 				CDB3C80D22A34D82002240C1 /* BindableValue.swift in Sources */,

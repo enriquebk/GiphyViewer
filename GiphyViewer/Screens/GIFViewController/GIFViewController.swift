@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyGif
 
 class GIFViewController: UIViewController, MVVMView {
 

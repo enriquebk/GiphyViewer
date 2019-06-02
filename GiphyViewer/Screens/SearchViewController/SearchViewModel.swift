@@ -9,64 +9,25 @@
 import Foundation
 
 class SearchViewModel: ViewModel, CoordinatorManager {
-    
+
     var coordinator: Coordinator<SearchRoute>!
     var gifs = BindableValue([GIF]())
     var isSearching = BindableValue(false)
-    private var apiClient = APIClient()
-    private var searchQuery = ""// TODO: Move to a fetcher
-    private var page = 0 // TODO: Move to a fetcher
-    private var pageSize = 20 // TODO: Move to a fetcher
-    private var fetchGifRequest: CancelableRequest? // Move to API CLient
+    var gifFetcher = GifFetcher()
     
-    private func fetchGifs(showLoading: Bool = false) {
-        
-        self.fetchGifRequest?.cancel()
-        
-        guard self.searchQuery.count > 0 else {
-            self.isSearching.value = false
-            return
-        }
-        
-        if showLoading {
-            self.isSearching.value = true
-        }
-        
-        self.fetchGifRequest = self.apiClient.searchGIFs(with: self.searchQuery,
-                                                         limit: self.pageSize,
-                                                         offset: self.page * self.pageSize) { [weak self] (gifs, error) in
-            
-            if let error = error {
-                self?.coordinator.navigate(to: .showError(error))
-            } else {
-                
-                var fetchedGifs: [GIF] = []
-                
-                if let gifs = gifs {
-                    fetchedGifs = gifs
-                }
-                
-                self?.gifs.value += fetchedGifs
-                
-                if showLoading {
-                    self?.isSearching.value = false
-                }
-            }
-            self?.isSearching.value = false
-        }
+    init() {
+        self.gifFetcher.delegate = self
     }
     
     func searchGIFs(with query: String) {
-        self.searchQuery = query
-        self.page = 0
-        self.gifs.value = []
         
-        fetchGifs(showLoading: true)
+        self.gifs.value = []
+        self.isSearching.value = true
+        self.gifFetcher.search(query: query)
     }
     
     func loadNewPage() {
-        self.page += 1
-        self.fetchGifs()
+        self.gifFetcher.loadNewPage()
     }
     
     func getViewStateforGIF(at index: Int) -> GIFCollectionViewCellViewState? {
@@ -88,5 +49,29 @@ class SearchViewModel: ViewModel, CoordinatorManager {
         let gif = self.gifs.value[index]
         
         self.coordinator.navigate(to: .show(gif))
+    }
+}
+
+extension SearchViewModel: GifFetcherDelegate {
+    
+    func fetcher(_ fetcher: GifFetcher, didFinishLoadingPage gifs: [GIF]?) {
+        
+        self.gifs.value += gifs ?? []
+    }
+    
+    func fetcher(_ fetcher: GifFetcher, didFinishSearching gifs: [GIF]?) {
+        
+        self.gifs.value = gifs ?? []
+        
+        if self.isSearching.value == true {
+            self.isSearching.value = false
+        }
+    }
+    
+    func fetcher(_ fetcher: GifFetcher, didFailWithError error: Error) {
+        self.coordinator.navigate(to: .showError(error))
+        if self.isSearching.value == true {
+            self.isSearching.value = false
+        }
     }
 }
