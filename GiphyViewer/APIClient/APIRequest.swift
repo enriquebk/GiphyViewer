@@ -11,7 +11,7 @@ import Alamofire
 
 enum APIRequest: URLRequestConvertible {
     
-    case search(query:String)
+    case search(query: String, limit: Int, offset: Int)
     
     private var httpProtocol: String { return "http" }
     private var basePath: String { return "api.giphy.com" }
@@ -42,8 +42,8 @@ enum APIRequest: URLRequestConvertible {
         var bodyParams: [String: Any]!
         
         switch self {
-        case .search(let query):
-            bodyParams = ["q": query, "limit": 20]
+        case .search(let query, let limit, let offset):
+            bodyParams = ["q": query, "limit": limit, "offset": offset]
         }
         
         bodyParams["api_key"] = self.apiKey

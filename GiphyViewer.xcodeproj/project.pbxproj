@@ -34,6 +34,7 @@
 		CDB3C80622A31173002240C1 /* GIFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80522A31173002240C1 /* GIFViewModel.swift */; };
 		CDB3C80922A3215A002240C1 /* APIClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80822A3215A002240C1 /* APIClientError.swift */; };
 		CDB3C80B22A3331B002240C1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80A22A3331B002240C1 /* APIClient.swift */; };
+		CDB3C80D22A34D82002240C1 /* BindableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80C22A34D82002240C1 /* BindableValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		CDB3C80522A31173002240C1 /* GIFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFViewModel.swift; sourceTree = "<group>"; };
 		CDB3C80822A3215A002240C1 /* APIClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
 		CDB3C80A22A3331B002240C1 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		CDB3C80C22A34D82002240C1 /* BindableValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableValue.swift; sourceTree = "<group>"; };
 		E0A39EE86C9CB8526427893E /* Pods-GiphyViewerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewerUITests/Pods-GiphyViewerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FAEA9BC51E0B3A44658CBF80 /* Pods-GiphyViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewer/Pods-GiphyViewer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				CD91CF9B2202F7FA00C8F9DF /* MVVMView.swift */,
+				CDB3C80C22A34D82002240C1 /* BindableValue.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				CD91CF502201FF6D00C8F9DF /* AppDelegate.swift in Sources */,
 				CDB3C7FD22A30F45002240C1 /* GIFViewController.swift in Sources */,
 				CDB3C80622A31173002240C1 /* GIFViewModel.swift in Sources */,
+				CDB3C80D22A34D82002240C1 /* BindableValue.swift in Sources */,
 				CDB3C80B22A3331B002240C1 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,17 +25,23 @@ class APIClient {
                 
                 switch response.result {
                 case .failure(let error):
+                    
                     if let serverResponse = response.response {
                         let statusCode = serverResponse.statusCode
                         callback(nil, .serverError(statusCode: statusCode))
                     } else {
+                        
+                        guard (error as NSError).code != NSURLErrorCancelled else {
+                            return
+                        }
+                        
                         callback(nil, .comunicationError(error))
                     }
                     
                 case .success(let data):
                     do {
                         let result = try JSONDecoder().decode(Response<ResultType>.self, from: data)
-                         callback(result.data, nil)
+                        callback(result.data, nil)
                     } catch let error {
                         callback(nil, .JSONMappingError(error))
                     }
@@ -43,10 +49,13 @@ class APIClient {
         }
     }
     
+    @discardableResult
     func searchGIFs(with query: String,
+                    limit: Int = 20,
+                    offset: Int = 0,
                     callback:@escaping(_ result: [GIF]?, _ error: APIClientError?) -> Void) -> CancelableRequest {
         
-        return self.execute(request: .search(query: query),
+        return self.execute(request: .search(query: query, limit: limit, offset: offset),
                             resultType: [GIF].self) { (gifs, error) in
             
             if let error = error {
