@@ -17,6 +17,7 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
     @IBOutlet weak private var collectionView: UICollectionView!
     private let searchBar = UISearchBar()
     private let refreshControl = UIRefreshControl()
+    private var showingCellsCount = 0
     
     func bindViewModel() {
         self.viewModel.isSearching.bind { searching in
@@ -27,8 +28,25 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
             }
         }
         
-        self.viewModel.gifs.bind { (_) in
-            self.collectionView.reloadData()
+        self.viewModel.gifs.bind { [weak self] (gifs) in
+            
+            guard let strongSelf = self else {
+                return
+            }
+            
+            if strongSelf.showingCellsCount < gifs.count && strongSelf.showingCellsCount > 0 {
+                //Load new page
+                strongSelf.collectionView?.performBatchUpdates({
+                    var indexPaths:[IndexPath] = []
+                    for index in strongSelf.showingCellsCount..<gifs.count {
+                        indexPaths.append(IndexPath(row: index, section: 0))
+                    }
+                    strongSelf.collectionView?.insertItems(at: indexPaths)
+                }, completion: nil)
+            } else {
+                //Show new search
+                strongSelf.collectionView?.reloadData()
+            }
         }
     }
     
@@ -62,7 +80,8 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
     // MARK: UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel.gifs.value.count
+        self.showingCellsCount = self.viewModel.gifs.value.count
+        return showingCellsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -108,11 +127,9 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        
-        for indexPath in indexPaths {
-            if indexPath.item == self.viewModel.gifs.value.count - 1 {
-                //self.viewModel.loadNewPage()
-            }
+
+        if indexPaths.first(where: { return $0.item == self.viewModel.gifs.value.count - 1 }) != nil {
+            self.viewModel.loadNewPage()
         }
     }
     
