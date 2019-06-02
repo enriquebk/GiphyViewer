@@ -14,18 +14,23 @@ class SearchViewModel: ViewModel, CoordinatorManager {
     var gifs = BindableValue([GIF]())
     var isSearching = BindableValue(false)
     private var apiClient = APIClient()
-    private var searchQuery = ""
-    private var page = 0
-    private var pageSize = 20
-    private var fetchGifRequest: CancelableRequest?
+    private var searchQuery = ""// TODO: Move to a fetcher
+    private var page = 0 // TODO: Move to a fetcher
+    private var pageSize = 20 // TODO: Move to a fetcher
+    private var fetchGifRequest: CancelableRequest? // Move to API CLient
     
     private func fetchGifs(showLoading: Bool = false) {
+        
+        self.fetchGifRequest?.cancel()
+        
+        guard self.searchQuery.count > 0 else {
+            self.isSearching.value = false
+            return
+        }
         
         if showLoading {
             self.isSearching.value = true
         }
-        
-        self.fetchGifRequest?.cancel()
         
         self.fetchGifRequest = self.apiClient.searchGIFs(with: self.searchQuery,
                                                          limit: self.pageSize,
@@ -51,7 +56,7 @@ class SearchViewModel: ViewModel, CoordinatorManager {
         }
     }
     
-    func searchGifs(with query: String) {
+    func searchGIFs(with query: String) {
         self.searchQuery = query
         self.page = 0
         self.gifs.value = []
@@ -64,7 +69,24 @@ class SearchViewModel: ViewModel, CoordinatorManager {
         self.fetchGifs()
     }
     
-    func selectGif(at index: Int) {
+    func getViewStateforGIF(at index: Int) -> GIFCollectionViewCellViewState? {
         
+        guard index < self.gifs.value.count else {
+            return nil
+        }
+        
+        let gif = self.gifs.value[index]
+        
+        return GIFCollectionViewCellViewState(gif)
+    }
+    
+    func selectGIF(at index: Int) {
+        guard index < self.gifs.value.count else {
+            return
+        }
+        
+        let gif = self.gifs.value[index]
+        
+        self.coordinator.navigate(to: .show(gif))
     }
 }

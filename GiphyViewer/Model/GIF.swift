@@ -14,6 +14,20 @@ struct GIF: Decodable {
     let images: [String: Image]
 }
 
+extension GIF {
+    var previewGIFUrl: URL? { return self.imageURL(forName: "preview_gif") }
+    var originalGIFURL: URL? { return self.imageURL(forName: "original") }
+
+    private func imageURL(forName imageName: String) -> URL? {
+        if let image = self.images[imageName],
+            let urlString = image.url {
+            return URL(string: urlString)
+        }
+        
+        return nil
+    }
+}
+
 struct Image: Decodable {
     
     var url: String?
