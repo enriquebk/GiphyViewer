@@ -9,10 +9,14 @@
 import UIKit
 import SVProgressHUD
 
-class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UICollectionViewDataSourcePrefetching {
-
+//swiftlint:disable line_length
+class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching {
+//swiftlint:enable line_length
+    
     var viewModel: SearchViewModel!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak private var collectionView: UICollectionView!
+    private let searchBar = UISearchBar()
+    private let refreshControl = UIRefreshControl()
     
     func bindViewModel() {
         self.viewModel.isSearching.bind { searching in
@@ -33,15 +37,26 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
         
         self.collectionView?.registerCell(type: GIFCollectionViewCell.self)
 
-        let searchBar = UISearchBar()
         searchBar.sizeToFit()
         searchBar.placeholder = L10n.search
+        searchBar.returnKeyType = .done
+        searchBar.showsCancelButton = true
         
         searchBar.delegate = self
         
         self.navigationItem.titleView = searchBar
         
         self.viewModel.searchGIFs(with: "funny")
+        
+        self.collectionView.addSubview(self.refreshControl)
+        self.refreshControl.addTarget(self, action: #selector(reloadItems), for: .valueChanged)
+    }
+    
+    @objc func reloadItems() {
+        self.refreshControl.endRefreshing()
+        if let searchText = self.searchBar.text {
+            self.viewModel.searchGIFs(with: searchText)
+        }
     }
     
     // MARK: UICollectionViewDataSource
@@ -100,10 +115,19 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
             }
         }
     }
+
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.viewModel.searchGIFs(with: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }
