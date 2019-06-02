@@ -7,47 +7,65 @@
 //
 
 import Foundation
+import Alamofire
 
-enum APIRequest {
+enum APIRequest: URLRequestConvertible {
     
-    // MARK: Endopints
+    case search(query: String, limit: Int, offset: Int)
     
-    // Add endpoints as enum cases
+    private var httpProtocol: String { return "http" }
+    private var basePath: String { return "api.giphy.com" }
+    private var version: String { return "v1" }
+    private var apiKey: String { return "Ewi7fenM7y0ADl63Epp6Ncz76NHxuZn8" }
     
-    // MARK: -
-    
-    private func httpProtocol() -> String {
-        return "https"
-    }
-    
-    private func basePath() -> String {
-        return ""
-    }
-    
-    private func path() -> String {
+    private var httpMethod: String {
         switch self {
-        default:
-            return ""
-        }
-    }
-    
-    private func method() -> String {
-        switch self {
-        default:
+        case .search:
             return "GET"
         }
     }
     
-    private func url() -> URL? {
-        return URL(string: "\(self.httpProtocol())://\(self.basePath())\(self.path())")
+    private var path: String {
+        switch self {
+        case .search:
+           return "gifs/search"
+        }
     }
     
-    func request() -> URLRequest? {
-        if let url = self.url() {
-            var request: URLRequest = URLRequest(url: url)
-            request.httpMethod = self.method()
-            return request
+    private var url: URL? {
+        let urlString = httpProtocol + "://" + basePath + "/" + version + "/" + path
+        return URL(string: urlString)
+    }
+    
+    private var bodyParams: [String: Any] {
+        
+        var bodyParams: [String: Any]!
+        
+        switch self {
+        case .search(let query, let limit, let offset):
+            bodyParams = ["q": query, "limit": limit, "offset": offset]
         }
-        return nil
+        
+        bodyParams["api_key"] = self.apiKey
+        
+        return bodyParams
+    }
+    
+    func asURLRequest() throws -> URLRequest {
+        
+        guard let url = url else {
+            throw APIClientError.invalidURL
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = httpMethod
+        
+        if httpMethod == "GET" {
+            request = try URLEncoding.queryString.encode(request, with: bodyParams)
+        } else {
+            request = try URLEncoding.httpBody.encode(request, with: bodyParams)
+        }
+        
+        return request
     }
 }

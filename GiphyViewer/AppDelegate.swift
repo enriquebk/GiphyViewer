@@ -13,11 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private var initialScreen: UIViewController {
+        let searchViewController = SearchViewController.instantiate(with: SearchViewModel())
+        return UINavigationController(rootViewController: searchViewController)
+    }
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = SearchViewController()
+        window?.rootViewController = self.initialScreen
         window?.makeKeyAndVisible()
         
         return true

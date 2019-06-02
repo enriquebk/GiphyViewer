@@ -1,24 +1,32 @@
 PODS:
+  - Alamofire (4.8.2)
   - SVProgressHUD (2.2.5)
   - SwiftGen (6.1.0)
   - SwiftLint (0.31.0)
+  - SwiftyGif (4.2.0)
 
 DEPENDENCIES:
+  - Alamofire
   - SVProgressHUD
   - SwiftGen
   - SwiftLint
+  - SwiftyGif
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - SVProgressHUD
     - SwiftGen
     - SwiftLint
+    - SwiftyGif
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  SwiftyGif: a149bf84df23370592f3f075561ae02c8632a314
 
-PODFILE CHECKSUM: 6b7a83957a96ab7e64641e235f47b5ba3273d509
+PODFILE CHECKSUM: 620115ca6d821fcac884f3746b0ede2decd08ead
 
 COCOAPODS: 1.5.3

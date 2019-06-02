@@ -8,6 +8,8 @@ pod 'SwiftGen'
 target 'GiphyViewer' do
 
   pod 'SVProgressHUD'
+  pod 'Alamofire'
+  pod 'SwiftyGif'
 
   target 'GiphyViewerTests' do
     inherit! :search_paths

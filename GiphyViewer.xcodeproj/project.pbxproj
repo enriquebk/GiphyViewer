@@ -11,7 +11,6 @@
 		6D01D20973592DC208E11BBC /* Pods_GiphyViewerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571B9D77DC16007C22D9EACB /* Pods_GiphyViewerTests.framework */; };
 		BDF38849E2583FC79DFDCC9D /* Pods_GiphyViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106C5610C0F6A820FEAF9046 /* Pods_GiphyViewer.framework */; };
 		CD7BD02A22393BD3004A2167 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BD02922393BD3004A2167 /* Test.swift */; };
-		CD810BD922044FD400D56D80 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD810BD822044FD400D56D80 /* APIClient.swift */; };
 		CD810BDD22046F8200D56D80 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD810BDC22046F8200D56D80 /* APIRequest.swift */; };
 		CD91CF502201FF6D00C8F9DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91CF4F2201FF6D00C8F9DF /* AppDelegate.swift */; };
 		CD91CF572201FF7000C8F9DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD91CF562201FF7000C8F9DF /* Assets.xcassets */; };
@@ -24,8 +23,6 @@
 		CD91CFA22202F87600C8F9DF /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91CFA12202F87600C8F9DF /* Route.swift */; };
 		CD91CFA42202F88E00C8F9DF /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91CFA32202F88E00C8F9DF /* Transition.swift */; };
 		CD91CFA62202F8C600C8F9DF /* MVVMCUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91CFA52202F8C600C8F9DF /* MVVMCUtils.swift */; };
-		CDB3C7F522A30C52002240C1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C7F322A30C52002240C1 /* SearchViewController.swift */; };
-		CDB3C7F622A30C52002240C1 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB3C7F422A30C52002240C1 /* SearchViewController.xib */; };
 		CDB3C7F822A30D40002240C1 /* GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C7F722A30D40002240C1 /* GIF.swift */; };
 		CDB3C7FD22A30F45002240C1 /* GIFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C7FB22A30F45002240C1 /* GIFViewController.swift */; };
 		CDB3C7FE22A30F45002240C1 /* GIFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB3C7FC22A30F45002240C1 /* GIFViewController.xib */; };
@@ -33,6 +30,15 @@
 		CDB3C80222A31127002240C1 /* GIFRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80122A31127002240C1 /* GIFRoute.swift */; };
 		CDB3C80422A31160002240C1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80322A31160002240C1 /* SearchViewModel.swift */; };
 		CDB3C80622A31173002240C1 /* GIFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80522A31173002240C1 /* GIFViewModel.swift */; };
+		CDB3C80922A3215A002240C1 /* APIClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80822A3215A002240C1 /* APIClientError.swift */; };
+		CDB3C80B22A3331B002240C1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80A22A3331B002240C1 /* APIClient.swift */; };
+		CDB3C80D22A34D82002240C1 /* BindableValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80C22A34D82002240C1 /* BindableValue.swift */; };
+		CDB3C81022A365C8002240C1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80E22A365C8002240C1 /* SearchViewController.swift */; };
+		CDB3C81122A365C8002240C1 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB3C80F22A365C8002240C1 /* SearchViewController.xib */; };
+		CDB3C81422A3791F002240C1 /* GIFCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81222A3791F002240C1 /* GIFCollectionViewCell.swift */; };
+		CDB3C81522A3791F002240C1 /* GIFCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB3C81322A3791F002240C1 /* GIFCollectionViewCell.xib */; };
+		CDB3C81722A40A9C002240C1 /* NibIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81622A40A9C002240C1 /* NibIdentifiable.swift */; };
+		CDB3C81A22A41E81002240C1 /* UIImageView+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C81922A41E81002240C1 /* UIImageView+Gif.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +67,6 @@
 		964C1D93FF979D3D9F84CFC9 /* Pods-GiphyViewerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewerUITests/Pods-GiphyViewerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8389C111B4F02F0A0398168 /* Pods_GiphyViewerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphyViewerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7BD02922393BD3004A2167 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		CD810BD822044FD400D56D80 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		CD810BDC22046F8200D56D80 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		CD91CF4C2201FF6D00C8F9DF /* GiphyViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD91CF4F2201FF6D00C8F9DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,8 +85,6 @@
 		CD91CFA12202F87600C8F9DF /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		CD91CFA32202F88E00C8F9DF /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		CD91CFA52202F8C600C8F9DF /* MVVMCUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMCUtils.swift; sourceTree = "<group>"; };
-		CDB3C7F322A30C52002240C1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		CDB3C7F422A30C52002240C1 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		CDB3C7F722A30D40002240C1 /* GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIF.swift; sourceTree = "<group>"; };
 		CDB3C7FB22A30F45002240C1 /* GIFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFViewController.swift; sourceTree = "<group>"; };
 		CDB3C7FC22A30F45002240C1 /* GIFViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GIFViewController.xib; sourceTree = "<group>"; };
@@ -89,6 +92,15 @@
 		CDB3C80122A31127002240C1 /* GIFRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFRoute.swift; sourceTree = "<group>"; };
 		CDB3C80322A31160002240C1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CDB3C80522A31173002240C1 /* GIFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFViewModel.swift; sourceTree = "<group>"; };
+		CDB3C80822A3215A002240C1 /* APIClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
+		CDB3C80A22A3331B002240C1 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		CDB3C80C22A34D82002240C1 /* BindableValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindableValue.swift; sourceTree = "<group>"; };
+		CDB3C80E22A365C8002240C1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CDB3C80F22A365C8002240C1 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		CDB3C81222A3791F002240C1 /* GIFCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFCollectionViewCell.swift; sourceTree = "<group>"; };
+		CDB3C81322A3791F002240C1 /* GIFCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GIFCollectionViewCell.xib; sourceTree = "<group>"; };
+		CDB3C81622A40A9C002240C1 /* NibIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibIdentifiable.swift; sourceTree = "<group>"; };
+		CDB3C81922A41E81002240C1 /* UIImageView+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Gif.swift"; sourceTree = "<group>"; };
 		E0A39EE86C9CB8526427893E /* Pods-GiphyViewerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewerUITests/Pods-GiphyViewerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FAEA9BC51E0B3A44658CBF80 /* Pods-GiphyViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewer/Pods-GiphyViewer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,8 +136,9 @@
 		CD810BD52203BD1900D56D80 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
-				CD810BD822044FD400D56D80 /* APIClient.swift */,
+				CDB3C80A22A3331B002240C1 /* APIClient.swift */,
 				CD810BDC22046F8200D56D80 /* APIRequest.swift */,
+				CDB3C80822A3215A002240C1 /* APIClientError.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -155,6 +168,7 @@
 		CD91CF4E2201FF6D00C8F9DF /* GiphyViewer */ = {
 			isa = PBXGroup;
 			children = (
+				CDB3C81822A40AA3002240C1 /* Utils */,
 				CD91CF8C2202635900C8F9DF /* Resources */,
 				CD810BD52203BD1900D56D80 /* APIClient */,
 				CD91CF9A2202F7DA00C8F9DF /* MVVM-C */,
@@ -210,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				CD91CF9B2202F7FA00C8F9DF /* MVVMView.swift */,
+				CDB3C80C22A34D82002240C1 /* BindableValue.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -253,9 +268,11 @@
 		CDB3C7F122A30C0F002240C1 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CDB3C7F322A30C52002240C1 /* SearchViewController.swift */,
-				CDB3C7F422A30C52002240C1 /* SearchViewController.xib */,
+				CDB3C80E22A365C8002240C1 /* SearchViewController.swift */,
+				CDB3C80F22A365C8002240C1 /* SearchViewController.xib */,
 				CDB3C80322A31160002240C1 /* SearchViewModel.swift */,
+				CDB3C81222A3791F002240C1 /* GIFCollectionViewCell.swift */,
+				CDB3C81322A3791F002240C1 /* GIFCollectionViewCell.xib */,
 			);
 			path = SearchViewController;
 			sourceTree = "<group>";
@@ -268,6 +285,15 @@
 				CDB3C80522A31173002240C1 /* GIFViewModel.swift */,
 			);
 			path = GIFViewController;
+			sourceTree = "<group>";
+		};
+		CDB3C81822A40AA3002240C1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CDB3C81622A40A9C002240C1 /* NibIdentifiable.swift */,
+				CDB3C81922A41E81002240C1 /* UIImageView+Gif.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E4BA72B3B342CFEDD8F7BB47 /* Frameworks */ = {
@@ -408,8 +434,9 @@
 			files = (
 				CD91CF5A2201FF7000C8F9DF /* LaunchScreen.storyboard in Resources */,
 				CD91CF94220263F600C8F9DF /* Localizable.strings in Resources */,
-				CDB3C7F622A30C52002240C1 /* SearchViewController.xib in Resources */,
 				CD91CF572201FF7000C8F9DF /* Assets.xcassets in Resources */,
+				CDB3C81522A3791F002240C1 /* GIFCollectionViewCell.xib in Resources */,
+				CDB3C81122A365C8002240C1 /* SearchViewController.xib in Resources */,
 				CDB3C7FE22A30F45002240C1 /* GIFViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,13 +511,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GiphyViewer/Pods-GiphyViewer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -567,19 +598,24 @@
 				CDB3C80022A310C9002240C1 /* SearchRoute.swift in Sources */,
 				CD91CFA42202F88E00C8F9DF /* Transition.swift in Sources */,
 				CDB3C80222A31127002240C1 /* GIFRoute.swift in Sources */,
-				CDB3C7F522A30C52002240C1 /* SearchViewController.swift in Sources */,
+				CDB3C80922A3215A002240C1 /* APIClientError.swift in Sources */,
 				CD91CF992202666C00C8F9DF /* Strings.swift in Sources */,
-				CD810BD922044FD400D56D80 /* APIClient.swift in Sources */,
+				CDB3C81A22A41E81002240C1 /* UIImageView+Gif.swift in Sources */,
 				CDB3C80422A31160002240C1 /* SearchViewModel.swift in Sources */,
 				CD810BDD22046F8200D56D80 /* APIRequest.swift in Sources */,
 				CD91CFA02202F85500C8F9DF /* Coordinator.swift in Sources */,
 				CDB3C7F822A30D40002240C1 /* GIF.swift in Sources */,
 				CD91CFA22202F87600C8F9DF /* Route.swift in Sources */,
+				CDB3C81422A3791F002240C1 /* GIFCollectionViewCell.swift in Sources */,
 				CD91CFA62202F8C600C8F9DF /* MVVMCUtils.swift in Sources */,
 				CD91CF9C2202F7FA00C8F9DF /* MVVMView.swift in Sources */,
+				CDB3C81022A365C8002240C1 /* SearchViewController.swift in Sources */,
 				CD91CF502201FF6D00C8F9DF /* AppDelegate.swift in Sources */,
 				CDB3C7FD22A30F45002240C1 /* GIFViewController.swift in Sources */,
 				CDB3C80622A31173002240C1 /* GIFViewModel.swift in Sources */,
+				CDB3C81722A40A9C002240C1 /* NibIdentifiable.swift in Sources */,
+				CDB3C80D22A34D82002240C1 /* BindableValue.swift in Sources */,
+				CDB3C80B22A3331B002240C1 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
