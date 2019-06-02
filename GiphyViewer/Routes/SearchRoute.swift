@@ -16,9 +16,11 @@ enum SearchRoute: Route {
     
     func getTransition() -> Transition {
         switch self {
-        case .show:
+        case .show(let gif):
             
-            return NavigationTransition(.push(GIFViewController()))
+            let gifViewController = GIFViewController.instantiate(with: GIFViewModel(gif))
+            
+            return NavigationTransition(.push(gifViewController))
         
         case let .showError(error):
 

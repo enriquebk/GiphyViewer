@@ -8,8 +8,12 @@
 
 import Foundation
 
-class GIFViewModel: ViewModel, CoordinatorManager {
+class GIFViewModel: ViewModel {
     
-    var coordinator: Coordinator<GIFRoute>!
+    var gif: BindableValue<GIF>!
+    
+    init(_ gif:GIF) {
+        self.gif = BindableValue(gif)
+    }
     
 }

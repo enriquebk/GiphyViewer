@@ -27,7 +27,6 @@
 		CDB3C7FD22A30F45002240C1 /* GIFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C7FB22A30F45002240C1 /* GIFViewController.swift */; };
 		CDB3C7FE22A30F45002240C1 /* GIFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB3C7FC22A30F45002240C1 /* GIFViewController.xib */; };
 		CDB3C80022A310C9002240C1 /* SearchRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C7FF22A310C9002240C1 /* SearchRoute.swift */; };
-		CDB3C80222A31127002240C1 /* GIFRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80122A31127002240C1 /* GIFRoute.swift */; };
 		CDB3C80422A31160002240C1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80322A31160002240C1 /* SearchViewModel.swift */; };
 		CDB3C80622A31173002240C1 /* GIFViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80522A31173002240C1 /* GIFViewModel.swift */; };
 		CDB3C80922A3215A002240C1 /* APIClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB3C80822A3215A002240C1 /* APIClientError.swift */; };
@@ -89,7 +88,6 @@
 		CDB3C7FB22A30F45002240C1 /* GIFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFViewController.swift; sourceTree = "<group>"; };
 		CDB3C7FC22A30F45002240C1 /* GIFViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GIFViewController.xib; sourceTree = "<group>"; };
 		CDB3C7FF22A310C9002240C1 /* SearchRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRoute.swift; sourceTree = "<group>"; };
-		CDB3C80122A31127002240C1 /* GIFRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFRoute.swift; sourceTree = "<group>"; };
 		CDB3C80322A31160002240C1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		CDB3C80522A31173002240C1 /* GIFViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFViewModel.swift; sourceTree = "<group>"; };
 		CDB3C80822A3215A002240C1 /* APIClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientError.swift; sourceTree = "<group>"; };
@@ -252,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				CDB3C7FF22A310C9002240C1 /* SearchRoute.swift */,
-				CDB3C80122A31127002240C1 /* GIFRoute.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -597,7 +594,6 @@
 			files = (
 				CDB3C80022A310C9002240C1 /* SearchRoute.swift in Sources */,
 				CD91CFA42202F88E00C8F9DF /* Transition.swift in Sources */,
-				CDB3C80222A31127002240C1 /* GIFRoute.swift in Sources */,
 				CDB3C80922A3215A002240C1 /* APIClientError.swift in Sources */,
 				CD91CF992202666C00C8F9DF /* Strings.swift in Sources */,
 				CDB3C81A22A41E81002240C1 /* UIImageView+Gif.swift in Sources */,

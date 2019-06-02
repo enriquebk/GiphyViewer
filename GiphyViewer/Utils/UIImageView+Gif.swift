@@ -38,8 +38,9 @@ extension UIImageView {
         }
         
         let loader = UIActivityIndicatorView()
-        
+        loader.style = .whiteLarge
         self.addSubview(loader)
+        
         loader.translatesAutoresizingMaskIntoConstraints = false
         self.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat: "H:|-0-[subview]-0-|",

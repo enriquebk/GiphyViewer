@@ -19,3 +19,14 @@ extension MVVMView where Self: UIViewController, Self.ViewModelType: Coordinator
         return viewController
     }
 }
+
+extension MVVMView where Self: UIViewController {
+    
+    static func instantiate(with viewModel: Self.ViewModelType) -> Self {
+        
+        let viewController = Self()
+        viewController.bind(to: viewModel)
+        
+        return viewController
+    }
+}
