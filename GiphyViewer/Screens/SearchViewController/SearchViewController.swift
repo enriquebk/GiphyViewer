@@ -115,12 +115,22 @@ class SearchViewController: UIViewController, MVVMView, UICollectionViewDelegate
             }
         }
     }
-
+    
+    @objc func search(_ query: String) {
+        self.viewModel.searchGIFs(with: query)
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.viewModel.searchGIFs(with: searchText)
+        self.perform(#selector(self.search), with: searchBar.text, afterDelay: 0.5)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if let previousText = searchBar.text {
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.search), object: previousText)
+        }
+        return true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
