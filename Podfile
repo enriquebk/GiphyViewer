@@ -16,9 +16,4 @@ target 'GiphyViewer' do
     # Pods for testing
   end
 
-  target 'GiphyViewerUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
