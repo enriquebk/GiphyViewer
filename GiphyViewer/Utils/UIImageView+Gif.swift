@@ -61,10 +61,9 @@ extension UIImageView {
             DispatchQueue.main.async {
                 loader.removeFromSuperview()
                 if let data = data {
-                    self.setGifImage(UIImage.init(gifData: data), manager: SwiftyGifManager.defaultManager, loopCount: loopCount)
-                    self.delegate?.gifURLDidFinish?(sender: self)
-                } else {
-                    self.delegate?.gifURLDidFail?(sender: self)
+                    if let image = try? UIImage.init(gifData: data) {
+                        self.setGifImage(image, manager: SwiftyGifManager.defaultManager, loopCount: loopCount)
+                    }
                 }
                 
                 GifLoadTaskManager.shared.removeTask(for: self)
