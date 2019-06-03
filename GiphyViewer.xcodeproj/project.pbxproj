@@ -10,6 +10,11 @@
 		6D01D20973592DC208E11BBC /* Pods_GiphyViewerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 571B9D77DC16007C22D9EACB /* Pods_GiphyViewerTests.framework */; };
 		BDF38849E2583FC79DFDCC9D /* Pods_GiphyViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106C5610C0F6A820FEAF9046 /* Pods_GiphyViewer.framework */; };
 		CD14B7C822A4A49C00922C72 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD14B7C722A4A49C00922C72 /* SearchViewModelTests.swift */; };
+		CD14B7CB22A4A69800922C72 /* SpyGifFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD14B7CA22A4A69800922C72 /* SpyGifFetcher.swift */; };
+		CD14B7CD22A4A7EE00922C72 /* GIFViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD14B7CC22A4A7EE00922C72 /* GIFViewModelTests.swift */; };
+		CD14B7D022A4A89900922C72 /* GifFetcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD14B7CF22A4A89900922C72 /* GifFetcherTest.swift */; };
+		CD14B7D322A4A94B00922C72 /* GIFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD14B7D222A4A94B00922C72 /* GIFTests.swift */; };
+		CD14B7D722A4B33900922C72 /* SpyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD14B7D622A4B33900922C72 /* SpyCoordinator.swift */; };
 		CD7BD02A22393BD3004A2167 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7BD02922393BD3004A2167 /* Test.swift */; };
 		CD810BDD22046F8200D56D80 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD810BDC22046F8200D56D80 /* APIRequest.swift */; };
 		CD91CF502201FF6D00C8F9DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91CF4F2201FF6D00C8F9DF /* AppDelegate.swift */; };
@@ -71,6 +76,11 @@
 		964C1D93FF979D3D9F84CFC9 /* Pods-GiphyViewerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GiphyViewerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GiphyViewerUITests/Pods-GiphyViewerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8389C111B4F02F0A0398168 /* Pods_GiphyViewerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GiphyViewerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD14B7C722A4A49C00922C72 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
+		CD14B7CA22A4A69800922C72 /* SpyGifFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyGifFetcher.swift; sourceTree = "<group>"; };
+		CD14B7CC22A4A7EE00922C72 /* GIFViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFViewModelTests.swift; sourceTree = "<group>"; };
+		CD14B7CF22A4A89900922C72 /* GifFetcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifFetcherTest.swift; sourceTree = "<group>"; };
+		CD14B7D222A4A94B00922C72 /* GIFTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFTests.swift; sourceTree = "<group>"; };
+		CD14B7D622A4B33900922C72 /* SpyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyCoordinator.swift; sourceTree = "<group>"; };
 		CD7BD02922393BD3004A2167 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		CD810BDC22046F8200D56D80 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		CD91CF4C2201FF6D00C8F9DF /* GiphyViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,8 +152,26 @@
 		CD14B7C922A4A51D00922C72 /* TestsDouble */ = {
 			isa = PBXGroup;
 			children = (
+				CD14B7CA22A4A69800922C72 /* SpyGifFetcher.swift */,
+				CD14B7D622A4B33900922C72 /* SpyCoordinator.swift */,
 			);
 			path = TestsDouble;
+			sourceTree = "<group>";
+		};
+		CD14B7CE22A4A87000922C72 /* Fetcher */ = {
+			isa = PBXGroup;
+			children = (
+				CD14B7CF22A4A89900922C72 /* GifFetcherTest.swift */,
+			);
+			path = Fetcher;
+			sourceTree = "<group>";
+		};
+		CD14B7D122A4A8C700922C72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD14B7D222A4A94B00922C72 /* GIFTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CD810BD52203BD1900D56D80 /* APIClient */ = {
@@ -197,6 +225,8 @@
 		CD91CF632201FF7000C8F9DF /* GiphyViewerTests */ = {
 			isa = PBXGroup;
 			children = (
+				CD14B7D122A4A8C700922C72 /* Model */,
+				CD14B7CE22A4A87000922C72 /* Fetcher */,
 				CDB3C82422A4A33B002240C1 /* MVVM-C */,
 				CDB3C83122A4A33C002240C1 /* ViewModels */,
 				CD91CF662201FF7000C8F9DF /* Info.plist */,
@@ -331,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				CD14B7C722A4A49C00922C72 /* SearchViewModelTests.swift */,
+				CD14B7CC22A4A7EE00922C72 /* GIFViewModelTests.swift */,
 				CD14B7C922A4A51D00922C72 /* TestsDouble */,
 			);
 			path = ViewModels;
@@ -614,11 +645,16 @@
 				CD14B7C822A4A49C00922C72 /* SearchViewModelTests.swift in Sources */,
 				CDB3C83F22A4A33C002240C1 /* FakeViewModelCoordinator.swift in Sources */,
 				CDB3C84322A4A33C002240C1 /* SpyRoute.swift in Sources */,
+				CD14B7CD22A4A7EE00922C72 /* GIFViewModelTests.swift in Sources */,
 				CDB3C83B22A4A33C002240C1 /* CoordinatorTests.swift in Sources */,
+				CD14B7D022A4A89900922C72 /* GifFetcherTest.swift in Sources */,
 				CDB3C84022A4A33C002240C1 /* SpyTransition.swift in Sources */,
 				CDB3C83D22A4A33C002240C1 /* SpyViewController.swift in Sources */,
 				CD7BD02A22393BD3004A2167 /* Test.swift in Sources */,
 				CDB3C84222A4A33C002240C1 /* SpyUINavigationController.swift in Sources */,
+				CD14B7D322A4A94B00922C72 /* GIFTests.swift in Sources */,
+				CD14B7CB22A4A69800922C72 /* SpyGifFetcher.swift in Sources */,
+				CD14B7D722A4B33900922C72 /* SpyCoordinator.swift in Sources */,
 				CDB3C84122A4A33C002240C1 /* SpyMVVMView.swift in Sources */,
 				CDB3C83C22A4A33C002240C1 /* MVVMCUtilsTests.swift in Sources */,
 				CDB3C83E22A4A33C002240C1 /* FakeViewModel.swift in Sources */,

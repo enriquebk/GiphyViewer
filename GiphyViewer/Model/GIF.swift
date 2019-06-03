@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GIF: Decodable {
+struct GIF: Decodable, Equatable {
     let id: String
     let title: String
     let images: [String: Image]
@@ -28,7 +28,7 @@ extension GIF {
     }
 }
 
-struct Image: Decodable {
+struct Image: Decodable, Equatable {
     
     var url: String?
     var width: Int?
@@ -48,5 +48,11 @@ struct Image: Decodable {
         if let heightStr = try? container.decode(String.self, forKey: .width) {
             self.height = Int(heightStr)
         }
+    }
+    
+    init(url: String, width: Int, height: Int) {
+        self.url = url
+        self.width = width
+        self.height = height
     }
 }

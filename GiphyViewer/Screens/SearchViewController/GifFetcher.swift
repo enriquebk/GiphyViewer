@@ -26,7 +26,7 @@ class GifFetcher {
     
     weak var delegate: GifFetcherDelegate?
     
-    private var apiClient = APIClient()
+    var apiClient = APIClient()
     private var page = 0
     private var pageSize = 20
     private var searchText = ""
