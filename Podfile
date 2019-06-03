@@ -7,16 +7,11 @@ pod 'SwiftGen'
 
 target 'GiphyViewer' do
 
-  pod 'RxSwift'
-  pod 'RxCocoa'
   pod 'SVProgressHUD'
+  pod 'Alamofire'
+  pod 'SwiftyGif'
 
   target 'GiphyViewerTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'GiphyViewerUITests' do
     inherit! :search_paths
     # Pods for testing
   end

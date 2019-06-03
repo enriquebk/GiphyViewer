@@ -5,3 +5,8 @@
   Created by Enrique Bermúdez
   Copyright © 2019 Enrique Bermúdez. All rights reserved.
 */
+
+"Error" = "Error";
+"OK" = "OK";
+"Loading" = "Loading";
+"Search" = "Search";
