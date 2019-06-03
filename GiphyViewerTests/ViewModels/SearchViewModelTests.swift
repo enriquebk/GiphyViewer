@@ -1,20 +1,17 @@
 //
-//  UITests.swift
-//  GiphyViewerUITests
+//  SearchViewModelTests.swift
+//  GiphyViewerTests
 //
-//  Created by Enrique Bermúdez
+//  Created by Enrique Bermúdez on 6/2/19.
 //  Copyright © 2019 Enrique Bermúdez. All rights reserved.
 //
 
 import XCTest
 
-class UITests: XCTestCase {
+class SearchViewModelTests: XCTestCase {
 
     override func setUp() {
-
-        continueAfterFailure = false
-
-        XCUIApplication().launch()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
@@ -22,8 +19,9 @@ class UITests: XCTestCase {
     }
 
     func testExample() {
-        // Use recording to get started writing UI tests.
+        // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+
 
 }
