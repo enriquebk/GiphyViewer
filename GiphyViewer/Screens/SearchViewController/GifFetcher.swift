@@ -14,7 +14,7 @@ protocol GifFetcherDelegate: AnyObject {
     
     func fetcher(_ fetcher: GifFetcher, didFinishSearching gifs: [GIF]?)
     
-    func fetcher(_ fetcher: GifFetcher, didFailWithError: Error)
+    func fetcher(_ fetcher: GifFetcher, didFailWithError error: Error)
 }
 
 class GifFetcher {
