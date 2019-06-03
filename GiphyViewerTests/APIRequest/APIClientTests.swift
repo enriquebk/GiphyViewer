@@ -17,4 +17,11 @@ class APIClientTests: XCTestCase {
         XCTAssertEqual(try? request.asURLRequest().url?.absoluteString,
                        "http://api.giphy.com/v1/gifs/search?api_key=Ewi7fenM7y0ADl63Epp6Ncz76NHxuZn8&limit=20&offset=1&q=query")
     }
+    
+    func testTrendingRequest() {
+        let request = APIRequest.trending(limit: 3, offset: 2)
+        
+        XCTAssertEqual(try? request.asURLRequest().url?.absoluteString,
+                       "http://api.giphy.com/v1/gifs/trending?api_key=Ewi7fenM7y0ADl63Epp6Ncz76NHxuZn8&limit=3&offset=2")
+    }
 }

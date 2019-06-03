@@ -36,24 +36,39 @@ class GifFetcher {
         
         self.fetchGifRequest?.cancel()
         
-        self.fetchGifRequest = self.apiClient.searchGIFs(with: self.searchText,
+        if searchText.count > 0 {
+        
+            self.fetchGifRequest = self.apiClient.searchGIFs(with: self.searchText,
                                                          limit: self.pageSize,
                                                          offset: self.page * self.pageSize) { [weak self](gifs, error) in
                                                             
                                                             guard let strongSelf = self else {
                                                                 return
                                                             }
-                                                            
-                                                            if let error = error {
-                                                                strongSelf.delegate?.fetcher(strongSelf, didFailWithError: error)
-                                                            } else {
-                                                                switch type {     
-                                                                case .search:
-                                                                    strongSelf.delegate?.fetcher(strongSelf, didFinishSearching: gifs)
-                                                                case .loadPage:
-                                                                    strongSelf.delegate?.fetcher(strongSelf, didFinishLoadingPage: gifs)
+                                                            strongSelf.handleResponse(gifs: gifs, error: error, type: type)
+            }
+        } else {
+            self.fetchGifRequest = self.apiClient.getTrendingGifs( limit: self.pageSize,
+                                                                   offset: self.page * self.pageSize) { [weak self](gifs, error) in
+                                                                
+                                                                guard let strongSelf = self else {
+                                                                    return
                                                                 }
-                                                            }
+                                                                strongSelf.handleResponse(gifs: gifs, error: error, type: type)
+            }
+        }
+    }
+    
+    private func handleResponse(gifs: [GIF]?, error: Error?, type: FetchType) {
+        if let error = error {
+            self.delegate?.fetcher(self, didFailWithError: error)
+        } else {
+            switch type {
+            case .search:
+                self.delegate?.fetcher(self, didFinishSearching: gifs)
+            case .loadPage:
+                self.delegate?.fetcher(self, didFinishLoadingPage: gifs)
+            }
         }
     }
     

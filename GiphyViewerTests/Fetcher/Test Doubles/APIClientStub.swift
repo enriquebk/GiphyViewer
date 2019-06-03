@@ -24,7 +24,15 @@ class APIClientStub: APIClient {
                              callback:@escaping(_ result: [GIF]?, _ error: APIClientError?) -> Void) -> CancelableRequest {
         
         callback(testData, nil)
+        return FakeCancelableRequest()
+    }
+    
+    @discardableResult
+    override func getTrendingGifs(limit: Int = 20,
+                                  offset: Int = 0,
+                                  callback:@escaping(_ result: [GIF]?, _ error: APIClientError?) -> Void) -> CancelableRequest {
         
+        callback(testData, nil)
         return FakeCancelableRequest()
     }
 }

@@ -57,12 +57,18 @@ class APIClient {
         
         return self.execute(request: .search(query: query, limit: limit, offset: offset),
                             resultType: [GIF].self) { (gifs, error) in
-            
-            if let error = error {
-                callback(nil, error)
-            } else {
-                callback(gifs, nil)
-            }
+                                callback(gifs, error)
+        }
+    }
+    
+    @discardableResult
+    func getTrendingGifs(limit: Int = 20,
+                         offset: Int = 0,
+                         callback:@escaping(_ result: [GIF]?, _ error: APIClientError?) -> Void) -> CancelableRequest {
+        
+        return self.execute(request: .trending(limit: limit, offset: offset),
+                            resultType: [GIF].self) { (gifs, error) in
+                                callback(gifs, error)
         }
     }
 }

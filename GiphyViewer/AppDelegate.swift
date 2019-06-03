@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var initialScreen: UIViewController {
         let searchViewController = SearchViewController.instantiate(with: SearchViewModel())
-        return UINavigationController(rootViewController: searchViewController)
+        return BlackNavigationController(rootViewController: searchViewController)
     }
     
     func application(_ application: UIApplication,

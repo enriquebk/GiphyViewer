@@ -64,6 +64,8 @@ class SearchViewController: UIViewController, MVVMView {
         
         self.collectionView.addSubview(self.refreshControl)
         self.refreshControl.addTarget(self, action: #selector(reloadItems), for: .valueChanged)
+        
+        self.viewModel.searchGIFs(with: self.searchBar.text ?? "")
     }
     
     @objc private func reloadItems() {
