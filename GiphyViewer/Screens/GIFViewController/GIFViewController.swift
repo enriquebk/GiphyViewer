@@ -10,12 +10,14 @@ import UIKit
 
 class GIFViewController: UIViewController, MVVMView {
 
+    @IBOutlet weak var previewImageView: UIImageView!
     @IBOutlet weak var gifImageView: UIImageView!
     var viewModel: GIFViewModel!
     
     func bindViewModel() {
         self.viewModel.gif.bind { [weak self] gif in
-            if let url = gif.originalGIFURL {
+            if let url = gif.originalGIFURL, let previewImageUrl = gif.previewGIFUrl {
+                self?.previewImageView.loadGif(from: previewImageUrl, loopCount: 0, showLoader: false)
                 self?.gifImageView.loadGif(from: url)
             }
         }
@@ -25,7 +27,7 @@ class GIFViewController: UIViewController, MVVMView {
     
         if pinchGestureRecognizer.state == .ended {
             UIView.animate(withDuration: 0.3) {
-                self.view.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+                pinchGestureRecognizer.view?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
             }
             return
         }

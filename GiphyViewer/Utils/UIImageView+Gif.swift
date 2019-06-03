@@ -12,19 +12,19 @@ import SwiftyGif
 
 extension UIImageView {
     
-    func loadGif(from url: URL?) {
+    func loadGif(from url: URL?, loopCount: Int = -1, showLoader: Bool = true) {
         
         self.setGifImage(UIImage())
         
         GifLoadTaskManager.shared.removeTask(for: self, cancelIfExists: true)
         
-        if let task = self.loadGifTask(from: url) {
+        if let task = self.loadGifTask(from: url, loopCount: loopCount, showLoader: showLoader) {
             GifLoadTaskManager.shared.setTask(task, for: self)
             task.resume()
         }
     }
     
-    private func loadGifTask(from url: URL?) -> URLSessionDataTask? {
+    private func loadGifTask(from url: URL?, loopCount: Int = -1, showLoader: Bool = true) -> URLSessionDataTask? {
         
         guard let url = url else {
             print("Invalid Gif URL")
@@ -38,27 +38,30 @@ extension UIImageView {
         }
         
         let loader = UIActivityIndicatorView()
-        loader.style = .whiteLarge
-        self.addSubview(loader)
         
-        loader.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[subview]-0-|",
-            options: .directionLeadingToTrailing,
-            metrics: nil,
-            views: ["subview": loader]))
-        self.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[subview]-0-|",
-            options: .directionLeadingToTrailing,
-            metrics: nil,
-            views: ["subview": loader]))
-        loader.startAnimating()
+        if showLoader {
+            loader.style = .whiteLarge
+            self.addSubview(loader)
+            
+            loader.translatesAutoresizingMaskIntoConstraints = false
+            self.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "H:|-0-[subview]-0-|",
+                options: .directionLeadingToTrailing,
+                metrics: nil,
+                views: ["subview": loader]))
+            self.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "V:|-0-[subview]-0-|",
+                options: .directionLeadingToTrailing,
+                metrics: nil,
+                views: ["subview": loader]))
+            loader.startAnimating()
+        }
         
         let task = URLSession.shared.dataTask(with: url) { (data, _, _) in
             DispatchQueue.main.async {
                 loader.removeFromSuperview()
                 if let data = data {
-                    self.setGifImage(UIImage.init(gifData: data), manager: SwiftyGifManager.defaultManager, loopCount: -1)
+                    self.setGifImage(UIImage.init(gifData: data), manager: SwiftyGifManager.defaultManager, loopCount: loopCount)
                     self.delegate?.gifURLDidFinish?(sender: self)
                 } else {
                     self.delegate?.gifURLDidFail?(sender: self)

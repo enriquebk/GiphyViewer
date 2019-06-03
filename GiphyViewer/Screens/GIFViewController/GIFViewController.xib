@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GIFViewController" customModule="GiphyViewer" customModuleProvider="target">
             <connections>
                 <outlet property="gifImageView" destination="zVY-U9-0cJ" id="2bd-nO-oV3"/>
+                <outlet property="previewImageView" destination="A0S-zn-PbV" id="4fG-I5-7bM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,23 +22,42 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A0S-zn-PbV">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZ5-Pv-79r">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NzR-t0-5Dn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="dark"/>
+                </visualEffectView>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zVY-U9-0cJ">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="dkW-d8-Uie" appends="YES" id="s8x-0p-tqk"/>
+                    </connections>
                 </imageView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="zVY-U9-0cJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2fg-I2-78a"/>
-                <constraint firstItem="zVY-U9-0cJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="57g-yF-YCv"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zVY-U9-0cJ" secondAttribute="trailing" id="HVl-F1-ibc"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zVY-U9-0cJ" secondAttribute="bottom" id="ZWy-Dw-P8s"/>
+                <constraint firstItem="zVY-U9-0cJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2fg-I2-78a"/>
+                <constraint firstAttribute="bottom" secondItem="A0S-zn-PbV" secondAttribute="bottom" id="3Zs-E4-DNM"/>
+                <constraint firstItem="zVY-U9-0cJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="57g-yF-YCv"/>
+                <constraint firstItem="A0S-zn-PbV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Gaw-7T-Uwj"/>
+                <constraint firstAttribute="trailing" secondItem="zVY-U9-0cJ" secondAttribute="trailing" id="HVl-F1-ibc"/>
+                <constraint firstItem="A0S-zn-PbV" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="Pgh-zo-UoV"/>
+                <constraint firstItem="dZ5-Pv-79r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Qls-je-NbP"/>
+                <constraint firstAttribute="bottom" secondItem="zVY-U9-0cJ" secondAttribute="bottom" id="ZWy-Dw-P8s"/>
+                <constraint firstItem="dZ5-Pv-79r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qnR-Jx-dho"/>
+                <constraint firstAttribute="trailing" secondItem="dZ5-Pv-79r" secondAttribute="trailing" id="sdd-8X-fpc"/>
+                <constraint firstItem="A0S-zn-PbV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uAU-U1-c38"/>
+                <constraint firstAttribute="bottom" secondItem="dZ5-Pv-79r" secondAttribute="bottom" id="zWa-5f-Wls"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="dkW-d8-Uie" appends="YES" id="0ug-6b-bd7"/>
-            </connections>
-            <point key="canvasLocation" x="906" y="90"/>
+            <point key="canvasLocation" x="905.79710144927549" y="89.732142857142847"/>
         </view>
         <pinchGestureRecognizer id="dkW-d8-Uie">
             <connections>
