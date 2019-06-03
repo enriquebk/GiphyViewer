@@ -14,7 +14,7 @@ protocol GifFetcherDelegate: AnyObject {
     
     func fetcher(_ fetcher: GifFetcher, didFinishSearching gifs: [GIF]?)
     
-    func fetcher(_ fetcher: GifFetcher, didFailWithError: Error)
+    func fetcher(_ fetcher: GifFetcher, didFailWithError error: Error)
 }
 
 class GifFetcher {
@@ -26,7 +26,7 @@ class GifFetcher {
     
     weak var delegate: GifFetcherDelegate?
     
-    private var apiClient = APIClient()
+    var apiClient = APIClient()
     private var page = 0
     private var pageSize = 20
     private var searchText = ""

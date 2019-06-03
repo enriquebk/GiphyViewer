@@ -90,9 +90,7 @@ extension SearchViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(type: GIFCollectionViewCell.self, forIndexPath: indexPath)
         
         if let viewState = self.viewModel.getViewStateforGIF(at: indexPath.item) {
-            
             cell.setViewState(viewState)
-            cell.backgroundColor = UIColor.cyan
         }
         
         return cell

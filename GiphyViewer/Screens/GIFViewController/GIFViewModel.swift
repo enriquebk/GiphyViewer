@@ -12,7 +12,7 @@ class GIFViewModel: ViewModel {
     
     var gif: BindableValue<GIF>!
     
-    init(_ gif:GIF) {
+    init(_ gif: GIF) {
         self.gif = BindableValue(gif)
     }
     
