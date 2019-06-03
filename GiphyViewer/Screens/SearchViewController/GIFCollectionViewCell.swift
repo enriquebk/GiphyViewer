@@ -22,6 +22,11 @@ class GIFCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var GIFImage: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.backgroundColor = UIColor.randomGiphyColor
+    }
+    
     func setViewState(_ viewState: GIFCollectionViewCellViewState) {
         self.GIFImage.loadGif(from: viewState.previewURL)
     }
