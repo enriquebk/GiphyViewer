@@ -2,7 +2,7 @@ platform :ios, '10.0'
 use_frameworks!
 inhibit_all_warnings!
 
-pod 'SwiftLint'
+pod 'SwiftLint', '0.27.0'
 pod 'SwiftGen'
 
 target 'GiphyViewer' do
