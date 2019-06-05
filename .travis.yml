@@ -1,5 +1,6 @@
 language: swift
 osx_image: xcode10.2
+rvm: 2.5.1
 script: 
   - bundle exec pod install --repo-update
   - xcodebuild -workspace GiphyViewer.xcworkspace -scheme GiphyViewer -destination 'platform=iOS Simulator,name=iPhone X' build test
