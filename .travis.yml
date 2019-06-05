@@ -1,5 +1,10 @@
 language: swift
-osx_image: xcode10.1
-script: xcodebuild -workspace GiphyViewer.xcworkspace -scheme GiphyViewer -destination 'platform=iOS Simulator,name=iPhone X' build test
+osx_image: xcode10.2
+rvm: 2.5.1
+script: 
+  - brew update
+  - bundle install
+  - bundle exec pod install --repo-update
+  - xcodebuild -workspace GiphyViewer.xcworkspace -scheme GiphyViewer -destination 'platform=iOS Simulator,name=iPhone X' build test
 after_success:
   - bash <(curl -s https://codecov.io/bash)
