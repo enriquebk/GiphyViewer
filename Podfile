@@ -3,7 +3,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 pod 'SwiftLint', '0.27.0'
-pod 'SwiftGen'
+pod 'SwiftGen', '6.0.2'
 
 target 'GiphyViewer' do
 
