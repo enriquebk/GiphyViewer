@@ -1,9 +1,9 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.1)
   - SVProgressHUD (2.2.5)
   - SwiftGen (6.1.0)
-  - SwiftLint (0.33.0)
-  - SwiftyGif (5.1.1)
+  - SwiftLint (0.38.2)
+  - SwiftyGif (5.2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -21,11 +21,11 @@ SPEC REPOS:
     - SwiftyGif
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
-  SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
-  SwiftyGif: f7702483db93586a41f04f4927cd682852a2fa10
+  SwiftLint: 8f5d2f903e1c9bcbc832fd16771e80a263ac6cbb
+  SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
 
 PODFILE CHECKSUM: cfaab32fc5c990660dff5a1fd10015596e4882a1
 
