@@ -13,7 +13,7 @@ DEPENDENCIES:
   - SwiftyGif
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - SVProgressHUD
     - SwiftGen
@@ -29,4 +29,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: cfaab32fc5c990660dff5a1fd10015596e4882a1
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

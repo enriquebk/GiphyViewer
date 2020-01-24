@@ -12,7 +12,7 @@ import Alamofire
 enum APIRequest: URLRequestConvertible {
     
     case search(query: String, limit: Int, offset: Int)
-    case trending(limit:Int, offset:Int)
+    case trending(limit: Int, offset: Int)
     
     private var httpProtocol: String { return "http" }
     private var basePath: String { return "api.giphy.com" }

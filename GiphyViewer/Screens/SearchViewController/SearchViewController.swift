@@ -35,7 +35,7 @@ class SearchViewController: UIViewController, MVVMView {
             if strongSelf.showingCellsCount < gifs.count && strongSelf.showingCellsCount > 0 {
                 //Load new page
                 strongSelf.collectionView?.performBatchUpdates({
-                    var indexPaths:[IndexPath] = []
+                    var indexPaths: [IndexPath] = []
                     for index in strongSelf.showingCellsCount..<gifs.count {
                         indexPaths.append(IndexPath(row: index, section: 0))
                     }
