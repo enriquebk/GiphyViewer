@@ -5,7 +5,7 @@
 
 GiphyViewer is an iOS showcase application that let you browse and search GIF animations on [Giphy](http://giphy.com/).
 
-![Screenshot](demo.mp4)
+![Screenshot](demo.gif)
 
 ## Installation
 To install Ruby Gems dependencies, run the following command in terminal: 
